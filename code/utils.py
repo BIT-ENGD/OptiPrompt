@@ -130,7 +130,7 @@ def evaluate(model, samples_batches, sentences_batches, filter_indices=None, ind
                 'topk': topk,
             })
         
-        eval_loss += loss.item() * tot_b
+        eval_loss += loss.mean().item() * tot_b #eval_loss += loss.item() * tot_b
     
     if output_topk is not None:
         logger.info('Output top-k prediction to %s..'%output_topk)
